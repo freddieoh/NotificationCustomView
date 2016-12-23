@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view, typically from a nib.
 
     //Creates red background
-    NotificationView *notificationView =[[NotificationView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    notificationView =[[NotificationView alloc]initWithFrame:CGRectMake(0, -self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height)];
     notificationView.backgroundColor = [UIColor redColor];
     
    [self.view addSubview:notificationView];
@@ -30,7 +30,14 @@
 
     [self.view addGestureRecognizer:swipeUp];
 
+    
+    //Create the swipe down gesture
+    UISwipeGestureRecognizer *swipeDown = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeDown:)];
+    swipeDown.direction = UISwipeGestureRecognizerDirectionDown;
+    [self.view addGestureRecognizer:swipeDown];
 }
+
+
 
 -(void) swipeUp:(UISwipeGestureRecognizer *) recognizer {
     
@@ -41,6 +48,7 @@
         // CGPointMake(self.view.center.x, self.view.frame.size.height);
     }];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

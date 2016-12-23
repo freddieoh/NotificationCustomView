@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "NotificationView.h"
-NotificationView *notificationView;
-@interface ViewController : UIViewController
 
+@interface ViewController : UIViewController
+{
+    NotificationView *notificationView;
+}
 @end
 
